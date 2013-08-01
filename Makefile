@@ -43,15 +43,15 @@ srcdir = .
 CC = arm-none-linux-gnueabi-gcc
 PROG = tcpdump
 CCOPT = -O2
-INCLS = -I. -I./../libpcap-1.4.0  -I./missing
-DEFS = -DHAVE_CONFIG_H  -I./missing  -D_U_="__attribute__((unused))"
+INCLS = -I. -I./../libpcap-1.4.0  -I./missing -I/usr/local/include
+DEFS = -DHAVE_CONFIG_H  -I/usr/local/include  -I./missing   -D_U_="__attribute__((unused))"
 
 # Standard CFLAGS
 CFLAGS = -g -O2
 FULL_CFLAGS = $(CCOPT) $(DEFS) $(INCLS) $(CFLAGS)
 
 # Standard LDFLAGS
-LDFLAGS = 
+LDFLAGS = -L/usr/local/lib
 
 # Standard LIBS
 LIBS = ./../libpcap-1.4.0/libpcap.a  
